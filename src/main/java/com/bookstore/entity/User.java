@@ -1,23 +1,24 @@
 package com.bookstore.entity;
 
+import com.bookstore.entity.base.BaseEntity;
+
 import javax.persistence.*;
 
 @Entity
-//@Table(name = User.TABLE_NAME)
-public class User {
-    //  protected final static String TABLE_NAME ="users";
-    private final static String USER_ID = "user_id";
-    private final static String EMAIL = "users";
-    private final static String FULL_NAME = "users";
-    private final static String PASSWORD = "users";
-    @Column(name =USER_ID)
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long userID;
+@Table(name = User.TABLE_NAME)
+public class User extends BaseEntity<Long> {
+    protected final static String TABLE_NAME = "users";
+    private final static String EMAIL = "email";
+    private final static String FULL_NAME = "full_name";
+    private final static String PASSWORD = "password";
+
+
     @Column(name = EMAIL,nullable = false,unique = true)
     private String email;
+
     @Column(name = FULL_NAME,nullable = false)
     private String fullName;
+
     @Column(name = PASSWORD,nullable = false)
     private String password;
 
@@ -25,13 +26,12 @@ public class User {
     public User() {
     }
 
-    public long getUserID() {
-        return userID;
+    public User(String email, String fullName, String password) {
+        this.email = email;
+        this.fullName = fullName;
+        this.password = password;
     }
 
-    public void setUserID(long userID) {
-        this.userID = userID;
-    }
 
     public String getEmail() {
         return email;
