@@ -2,13 +2,11 @@ package com.bookstore.entity;
 
 import com.bookstore.entity.profile.Profile;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.List;
 
 import static com.bookstore.entity.Customer.TABLE_NAME;
 
@@ -28,6 +26,10 @@ public class Customer extends Profile {
     private Timestamp registerDate;
     @OneToOne
     private Address address;
+    @OneToMany(mappedBy = "customer")
+    private List<Review> reviews;
+    @OneToMany(mappedBy = "customer")
+    private List<Order> orders;
 
 
     public Customer() {
@@ -71,5 +73,19 @@ public class Customer extends Profile {
     public void setAddress(Address address) {
         this.address = address;
     }
+    public List<Review> getReviews() {
+        return reviews;
+    }
 
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
+    }
 }

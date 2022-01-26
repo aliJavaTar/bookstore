@@ -4,6 +4,7 @@ import com.bookstore.entity.base.BaseEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import java.sql.Timestamp;
@@ -26,6 +27,10 @@ public class Review extends BaseEntity<Long> {
     private String comment;
     @Column(name = REVIEW_TIME)
     private Timestamp review_time;
+    @ManyToOne
+    private Books books;
+    @ManyToOne
+    private Customer customer;
 
     public Review() {
     }

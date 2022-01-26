@@ -2,9 +2,7 @@ package com.bookstore.entity;
 
 import com.bookstore.entity.base.BaseEntity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import static com.bookstore.entity.Category.TABLE_NAME;
 
@@ -15,6 +13,9 @@ public class Category extends BaseEntity<Long> {
     private final static String NAME = "name";
     @Column(name = NAME)
     private String name;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn (name="fk_book_id",referencedColumnName="id",nullable=false,unique=true)
+    private Books books;
 
     public Category() {
     }

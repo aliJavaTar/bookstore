@@ -2,9 +2,7 @@ package com.bookstore.entity;
 
 import com.bookstore.entity.base.BaseEntity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import static com.bookstore.entity.OrderDetail.TABLE_NAME;
 
@@ -18,7 +16,10 @@ public class OrderDetail extends BaseEntity<Long>{
     private long quantity;
     @Column(name = SUB_TOTAL,nullable = false)
     private double subTotal;
-
+    @ManyToOne
+    private Books books;
+    @ManyToOne
+    private Order order;
     public OrderDetail() {
     }
 

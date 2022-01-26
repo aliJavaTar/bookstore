@@ -2,11 +2,10 @@ package com.bookstore.entity;
 
 import com.bookstore.entity.base.BaseEntity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import static com.bookstore.entity.Books.TABLE_NAME;
 
@@ -38,6 +37,16 @@ public class Books extends BaseEntity<Long> {
     private Timestamp publish_date;
     @Column(name = UPDATE_AT, nullable = false)
     private Timestamp update_at;
+
+    @OneToMany(mappedBy = "books",cascade = CascadeType.ALL)
+    private List<Category> categories;
+
+    @OneToMany(mappedBy = "books",cascade = CascadeType.ALL)
+    private List<Review> reviews;
+
+    @OneToMany(mappedBy = "books",cascade = CascadeType.ALL)
+    private List<OrderDetail> orderDetails;
+
 
     public String getTitle() {
         return title;
@@ -102,4 +111,28 @@ public class Books extends BaseEntity<Long> {
     public void setUpdate_at(Timestamp update_at) {
         this.update_at = update_at;
     }
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
+    }
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
+    }
+
+    public List<OrderDetail> getOrderDetails() {
+        return orderDetails;
+    }
+
+    public void setOrderDetails(List<OrderDetail> orderDetails) {
+        this.orderDetails = orderDetails;
+    }
+
 }

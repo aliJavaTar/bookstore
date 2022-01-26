@@ -2,11 +2,10 @@ package com.bookstore.entity;
 
 import com.bookstore.entity.base.BaseEntity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import static com.bookstore.entity.Order.TABLE_NAME;
 
@@ -20,18 +19,23 @@ public class Order extends BaseEntity<Long> {
     private final static String PAYMENT_METHOD = "payment_method";
     private final static String TOTAL = "total";
     private final static String STATUS = "status";
-    @Column(name = ORDER_TIME,nullable = false)
+    @Column(name = ORDER_TIME, nullable = false)
     private Timestamp orderTime;
-    @Column(name = SHIPPING_ADDRESS,nullable = false)
+    @Column(name = SHIPPING_ADDRESS, nullable = false)
     private String shippingAddress;
-    @Column(name = RECIPIENT_PHONE,nullable = false)
+    @Column(name = RECIPIENT_PHONE, nullable = false)
     private String recipientPhone;
-    @Column(name = PAYMENT_METHOD,nullable = false)
+    @Column(name = PAYMENT_METHOD, nullable = false)
     private String paymentMethod;
-    @Column(name = TOTAL,nullable = false)
+    @Column(name = TOTAL, nullable = false)
     private double total;
-    @Column(name = STATUS,nullable = false)
+    @Column(name = STATUS, nullable = false)
     private String status;
+    @OneToMany(mappedBy = "order")
+    private List<OrderDetail> orderDetails;
+
+   @ManyToOne
+   private Customer customer;
 
     public Order() {
     }
@@ -91,5 +95,13 @@ public class Order extends BaseEntity<Long> {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public List<OrderDetail> getOrderDetails() {
+        return orderDetails;
+    }
+
+    public void setOrderDetails(List<OrderDetail> orderDetails) {
+        this.orderDetails = orderDetails;
     }
 }
