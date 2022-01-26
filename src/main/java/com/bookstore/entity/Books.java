@@ -37,10 +37,12 @@ public class Books extends BaseEntity<Long> {
     private Timestamp publish_date;
     @Column(name = UPDATE_AT, nullable = false)
     private Timestamp update_at;
+//
 
-    @OneToMany(mappedBy = "books",cascade = CascadeType.ALL)
-    private List<Category> categories;
-
+    @ManyToOne
+   // @JoinColumn (name="fk_category_id",referencedColumnName="id",nullable=false,unique=true)
+    private Category category;
+//
     @OneToMany(mappedBy = "books",cascade = CascadeType.ALL)
     private List<Review> reviews;
 
@@ -111,14 +113,6 @@ public class Books extends BaseEntity<Long> {
     public void setUpdate_at(Timestamp update_at) {
         this.update_at = update_at;
     }
-    public List<Category> getCategories() {
-        return categories;
-    }
-
-    public void setCategories(List<Category> categories) {
-        this.categories = categories;
-    }
-
     public List<Review> getReviews() {
         return reviews;
     }
@@ -135,4 +129,11 @@ public class Books extends BaseEntity<Long> {
         this.orderDetails = orderDetails;
     }
 
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 }

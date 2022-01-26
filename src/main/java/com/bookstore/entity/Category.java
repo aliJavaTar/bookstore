@@ -4,6 +4,8 @@ import com.bookstore.entity.base.BaseEntity;
 
 import javax.persistence.*;
 
+import java.util.List;
+
 import static com.bookstore.entity.Category.TABLE_NAME;
 
 @Entity
@@ -13,9 +15,21 @@ public class Category extends BaseEntity<Long> {
     private final static String NAME = "name";
     @Column(name = NAME)
     private String name;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn (name="fk_book_id",referencedColumnName="id",nullable=false,unique=true)
-    private Books books;
+
+
+    //
+    @OneToMany(mappedBy = "category",cascade = CascadeType.ALL)
+    private List<Books> books;
+
+    //
+
+    public List<Books> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<Books> books) {
+        this.books = books;
+    }
 
     public Category() {
     }

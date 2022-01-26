@@ -24,10 +24,13 @@ public class Customer extends Profile {
     private String zipCode;
     @Column(name = REGISTER_DATE, nullable = false)
     private Timestamp registerDate;
+
     @OneToOne
     private Address address;
+
     @OneToMany(mappedBy = "customer")
     private List<Review> reviews;
+
     @OneToMany(mappedBy = "customer")
     private List<Order> orders;
 
