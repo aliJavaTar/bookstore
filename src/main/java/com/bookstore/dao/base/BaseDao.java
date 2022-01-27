@@ -14,9 +14,9 @@ public interface BaseDao<E extends BaseEntity<ID>, ID extends Serializable> {
 
     boolean delete(E e);
 
-    E getById(Long id);
+    E getById(ID id);
 
-    void deleteById(Long id);
+    void deleteById(ID id);
 
     List<E> findAll();
 
