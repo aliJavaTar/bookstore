@@ -1,26 +1,32 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>BookStore Admin</title>
+    <meta charset="UTF-8">
+    <title>Bookstore Administration</title>
 </head>
 <body>
-<jsp:include page="header/header.jsp"/>
-<br>
+<jsp:include page="header/header.jsp"></jsp:include>
+<header align="center">
+    <h2>Administration dashboard</h2>
+</header>
 <div align="center">
-    <h2>Administrative Dashboard</h2>
-</div>
-<br>
-<div align="center" >
+    <hr width="60%">
+    <h2>Quick Actions:</h2>
     <b>
-        <a href="users">Users</a> |
-        <a href="categories">Categories</a> |
-        <a href="books">Books</a> |
-        <a href="customers">Customers</a> |
-        <a href="reviews">Reviews</a> |
-        <a href="orders">Orders</a>
+        <a href="create_book">New Book</a> &nbsp;
+        <a href="create_user">New User</a> &nbsp;
+        <a href="create_category">New category</a> &nbsp;
+        <a href="create_customer">New customer</a> &nbsp;
     </b>
 </div>
-<br>
-<jsp:include page="footer/footer.jsp"/>
+<div align="center">
+    <hr width="60%">
+    <h2>Recent Sales</h2>
+</div>
+<div align="center">
+    <hr width="60%">
+    <h2>Recent Reviews</h2>
+</div>
+<jsp:include page="footer/footer.jsp"></jsp:include>
 </body>
 </html>

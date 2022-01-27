@@ -4,4 +4,12 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+<!--  <servlet>-->
+<!--    <servlet-name>ListUserServlet</servlet-name>-->
+<!--    <servlet-class>com.bookstore.controller.admin.ListUserServlet</servlet-class>-->
+<!--  </servlet>-->
+<!--  <servlet-mapping>-->
+<!--    <servlet-name>ListUserServlet</servlet-name>-->
+<!--    <url-pattern>/admin/user-list</url-pattern>-->
+<!--  </servlet-mapping>-->
 </web-app>
