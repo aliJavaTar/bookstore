@@ -6,5 +6,7 @@ import com.bookstore.entity.User;
 
 
 public interface UserDao extends BaseDao<User, Long> {
+
+
     User findByName(User user);
 }

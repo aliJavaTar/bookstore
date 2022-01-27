@@ -26,6 +26,11 @@ public class UserDaoImpl extends BaseDaoImpl<User,Long> implements UserDao {
     }
 
     @Override
+    public User getById(Long id) {
+        return super.getById(id);
+    }
+
+    @Override
     public User findByName(User user) {
         CriteriaBuilder criteriaBuilder = getEntityManager().getCriteriaBuilder();
         CriteriaQuery<User> query = criteriaBuilder.createQuery(User.class);

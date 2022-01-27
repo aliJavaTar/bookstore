@@ -65,5 +65,10 @@ public class UserDaoImplTest extends TestCase {
         entityManagerFactory.close();
     }
 
-
+    @Test
+    public void testGetById() {
+        setUpClass();
+        User userFindById = userDao.getById(1l);
+        System.out.println(userFindById);
+    }
 }

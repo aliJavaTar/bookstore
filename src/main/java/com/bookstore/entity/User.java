@@ -9,7 +9,12 @@ import javax.persistence.*;
 @Table(name = User.TABLE_NAME)
 public class User extends Profile {
     protected final static String TABLE_NAME = "users";
-//    private final static String EMAIL = "email";
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
+    //    private final static String EMAIL = "email";
 //    private final static String FULL_NAME = "full_name";
 //    private final static String PASSWORD = "password";
 //

@@ -55,4 +55,13 @@ public abstract class Profile extends BaseEntity<Long> {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    @Override
+    public String toString() {
+        return "Profile{" +
+                "email='" + email + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }
