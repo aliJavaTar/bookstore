@@ -8,10 +8,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.PersistenceException;
+import javax.persistence.*;
+import java.util.List;
 
 public class UserDaoImplTest extends TestCase {
     private static EntityManager entityManager;
@@ -44,9 +42,9 @@ public class UserDaoImplTest extends TestCase {
         user.setEmail("jafaar@gmail.com");
         user.setPassword("jdsaf435453453543345");
         User update = userDao.update(user);
-        String expected ="java java";
+        String expected = "java java";
         String actual = update.getFullName();
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
         //  assertTrue(user.getId() > 0);
     }
 
@@ -69,6 +67,52 @@ public class UserDaoImplTest extends TestCase {
     public void testGetById() {
         setUpClass();
         User userFindById = userDao.getById(1l);
-        System.out.println(userFindById);
+        if (userFindById != null)
+            System.out.println(userFindById);
+        assertNotNull(userFindById);
+    }
+
+    @Test
+    public void testGetUserNotFound() {
+        setUpClass();
+        Long userId = 99l;
+        User userFind = userDao.getById(userId);
+        assertNotNull(userFind);
+
+    }
+
+    @Test
+    public void testDelete() {
+        setUpClass();
+        user.setId(18L);
+        user.setFullName("mohserErfagh");
+        user.setPassword("m4645");
+        user.setEmail("dgfEh@gmail.com");
+        boolean delete = userDao.delete(user);
+        if (delete)
+            System.out.println("done");
+        else System.out.println("not found");
+
+    }
+
+    @Test
+    public void testDeleteById() {
+        setUpClass();
+        Long id = 19l;
+        userDao.deleteById(id);
+    }
+
+    @Test(expected = EntityNotFoundException.class)
+    public void testDeleteNonExitUsers() {
+        setUpClass();
+        long id = 5000l;
+        userDao.deleteById(id);
+    }
+
+    @Test
+    public void testFindAll() {
+        setUpClass();
+        List<User> userList = userDao.findAll();
+        assertTrue(userList.size() > 0);
     }
 }

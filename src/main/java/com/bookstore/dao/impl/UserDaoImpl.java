@@ -9,27 +9,12 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
+import java.util.List;
 
 public class UserDaoImpl extends BaseDaoImpl<User,Long> implements UserDao {
     public UserDaoImpl(EntityManager entityManager) {
         super(entityManager);
     }
-
-    @Override
-    public User create(User user) {
-        return super.create(user);
-    }
-
-    @Override
-    public User update(User user) {
-        return super.update(user);
-    }
-
-    @Override
-    public User getById(Long id) {
-        return super.getById(id);
-    }
-
     @Override
     public User findByName(User user) {
         CriteriaBuilder criteriaBuilder = getEntityManager().getCriteriaBuilder();

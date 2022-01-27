@@ -42,19 +42,23 @@ public abstract class BaseDaoImpl<E extends BaseEntity<ID>, ID extends Serializa
                 .setParameter("id", e.getId())
                 .executeUpdate();
         getEntityManager().getTransaction().commit();
-        if (id>0)
+        if (id > 0)
             return true;
         else return false;
     }
 
     @Override
     public E getById(Long id) {
-       return getEntityManager().find(getEntityClass(), id);
+        return getEntityManager().find(getEntityClass(), id);
     }
 
     @Override
     public void deleteById(Long id) {
-
+        getEntityManager().getTransaction().begin();
+        getEntityManager().createQuery("delete from " + getEntityClass().getSimpleName() + " where id=:id")
+                .setParameter("id", id)
+                .executeUpdate();
+        getEntityManager().getTransaction().commit();
     }
 
     @Override
