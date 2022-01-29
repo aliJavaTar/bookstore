@@ -1,3 +1,7 @@
+<%@ page import="com.bookstore.entity.User" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,25 +12,39 @@
 <jsp:include page="header/header.jsp"></jsp:include>
 <header align="center">
     <h2>User Management</h2>
+    <h3><a href="">Create New User</a></h3>
+
+    <input type="hidden" name="userList" value="<%=request.getAttribute("userList")%>">
+
+
 </header>
 <div align="center">
-    <hr width="60%">
-    <h2>Quick Actions:</h2>
-    <b>
-        <a href="create_book">New Book</a> &nbsp;
-        <a href="create_user">New User</a> &nbsp;
-        <a href="create_category">New category</a> &nbsp;
-        <a href="create_customer">New customer</a> &nbsp;
-    </b>
+    <table border="1">
+        <tr>
+            <th>Index</th>
+            <th>ID</th>
+            <th>Email</th>
+            <th>FullName</th>
+            <th>Actions</th>
+        </tr>
+
+        <%
+            ArrayList<User> users =
+                    (ArrayList<User>) request.getAttribute("userList");
+            for (int i = 0; i < users.size(); i++) {%>
+        <tr>
+            <td>i</td>
+            <td><%=users.get(i).getId()%>
+            </td>
+            <td><%=users.get(i).getEmail()%>
+            </td>
+            <td><%=users.get(i).getFullName()%>
+            </td>
+        </tr>
+        <%}%>
+    </table>
 </div>
-<div align="center">
-    <hr width="60%">
-    <h2>Recent Sales</h2>
-</div>
-<div align="center">
-    <hr width="60%">
-    <h2>Recent Reviews</h2>
-</div>
+
 <jsp:include page="footer/footer.jsp"></jsp:include>
 </body>
 </html>
