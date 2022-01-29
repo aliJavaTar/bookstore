@@ -64,7 +64,6 @@ public abstract class BaseDaoImpl<E extends BaseEntity<ID>, ID extends Serializa
     @Override
     public List<E> findAll() {
         getEntityManager().getTransaction().begin();
-
         List<E> resultList = getEntityManager().
                 createQuery("from " + getEntityClass().getSimpleName(),
                         getEntityClass()).getResultList();

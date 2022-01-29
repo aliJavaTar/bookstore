@@ -20,20 +20,17 @@ public class UserServiceImpl extends BaseServiceImpl<User, Long, UserDao> implem
 
     private final static UserService userService = new UserServiceImpl(ApplicationContext.getUserDao());
     private static int size = userService.findAll().size();
-//    @Override
-//    public List<User> findAll() {
-//        return super.findAll();
-//    }
 
 
+
+    @Override
     public void findAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<User> userList = super.findAll();
         request.setAttribute("userList", userList);
         System.out.println(size);
         System.out.println("-------------------------");
         System.out.println(userList.size());
-        if (size < userList.size())
-        {
+        if (size < userList.size()) {
             request.setAttribute("message", "New User Created Successfully");
             size++;
         }
@@ -53,5 +50,10 @@ public class UserServiceImpl extends BaseServiceImpl<User, Long, UserDao> implem
         User user = userService.create(new User(email, fullName, password));
 //        if (user != null)
 //            request.setAttribute("massage", "New User Created Successfully");
+    }
+
+    @Override
+    public User findByEmail(String email) {
+        return null;
     }
 }
