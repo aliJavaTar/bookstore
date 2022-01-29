@@ -24,15 +24,15 @@ public class UserDaoImplTest extends TestCase {
         userDao = new UserDaoImpl(entityManager);
     }
 
-//    @Test
-//    public void testCreate() {
-//        setUpClass();
-//        user.setFullName("jafaar");
-//        user.setEmail("jafaar@gmail.com");
-//        user.setPassword("jafaar45");
-//        userDao.create(user);
-//        assertTrue(user.getId() > 0);
-//    }
+    @Test
+    public void testCreate() {
+        setUpClass();
+        user.setFullName("hasan");
+        user.setEmail("hasan@gmail.com");
+        user.setPassword("hasan007");
+        userDao.create(user);
+        assertTrue(user.getId() > 0);
+    }
 
     @Test
     public void testUpdate() {
