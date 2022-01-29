@@ -117,14 +117,9 @@ public class UserDaoImplTest extends TestCase {
     }
     @Test
     public void testFindByEmail() {
-//        user.setId(16l);
-//        user.setFullName("mohserErfagh");
-//        user.setEmail("Erfagh@gmail.com");
-//       user.setPassword("mohserErfagh54645");
         setUpClass();
-        User byEmail = userDao.findByEmail("Erfagh@gmail.com");
+        User byEmail = userDao.findByEmail("nnnnnnnnnnmb");
         System.out.println(byEmail.toString());
         assertNotNull(byEmail);
-//        assertEquals(user,byEmail);
     }
 }

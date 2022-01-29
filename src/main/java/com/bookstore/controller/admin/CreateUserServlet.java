@@ -18,6 +18,5 @@ public class CreateUserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UserService userService = new UserServiceImpl(ApplicationContext.getUserDao());
         userService.createUser(request, response);
-        userService.findAll(request,response);
     }
 }

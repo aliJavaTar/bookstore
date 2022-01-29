@@ -22,7 +22,6 @@ public class UserServiceImpl extends BaseServiceImpl<User, Long, UserDao> implem
     private static int size = userService.findAll().size();
 
 
-
     @Override
     public void findAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<User> userList = super.findAll();
@@ -42,18 +41,30 @@ public class UserServiceImpl extends BaseServiceImpl<User, Long, UserDao> implem
     }
 
     @Override
-    public void createUser(HttpServletRequest request, HttpServletResponse response) {
+    public void createUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("email");
         String fullName = request.getParameter("fullName");
         String password = request.getParameter("password");
-
-        User user = userService.create(new User(email, fullName, password));
+        // find by email error
+        User existUser = findByEmail(email);
+        if (existUser != null) {
+          String message = "Could Not Create User , A user whit email "+email+" Already exist";
+          request.setAttribute("message",message);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("message.jsp");
+            dispatcher.forward(request,response);
+        }
+        else if (existUser==null)
+        {
+            System.out.println(existUser);
+            userService.create(new User(email, fullName, password));
+            userService.findAll(request,response);
+        }
 //        if (user != null)
 //            request.setAttribute("massage", "New User Created Successfully");
     }
 
     @Override
     public User findByEmail(String email) {
-        return null;
+        return repository.findByEmail(email);
     }
 }

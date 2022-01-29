@@ -5,6 +5,7 @@ import com.bookstore.dao.base.BaseDaoImpl;
 import com.bookstore.entity.User;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -18,31 +19,28 @@ public class UserDaoImpl extends BaseDaoImpl<User, Long> implements UserDao {
     }
 
 
-
     @Override
     public User findByEmail(String email) {
-               getEntityManager().getTransaction().begin();
-        Query query =getEntityManager().createQuery("from User u where u.email = :email ");
-        Object user = query.setParameter("email", email).getSingleResult();
-             getEntityManager().getTransaction().commit();
+        String query = "from User u where u.email = :email";
+        User user = null;
+     getEntityManager().getTransaction().begin();
+        try {
+//           getEntityManager().getTransaction().begin();
+            user = (User) getEntityManager().createQuery(query)
+                    .setParameter("email", email).getSingleResult();
+            getEntityManager().getTransaction().commit();
+        } catch (NoResultException nre) {
+            nre.printStackTrace();
+            getEntityManager().getTransaction().commit();
+        }
         if (user != null)
-            return (User) user;
+            return user;
         else return null;
-//        getEntityManager().getTransaction().begin();
-//        Object user = getEntityManager().createQuery("select from " + getEntityClass().getSimpleName() + " where email=:email")
-//                .setParameter("email", email)
-//                .getSingleResult();
-//        getEntityManager().getTransaction().commit();
-//        if (user != null)
-//            return (User) user;
-//        else return null;
+
+
     }
 
-    //    getEntityManager().getTransaction().begin();
-//    getEntityManager().createQuery("delete from " + getEntityClass().getSimpleName() + " where id=:id")
-//            .setParameter("id", id)
-//                .executeUpdate();
-//    getEntityManager().getTransaction().commit();
+
     @Override
     public User findByName(User user) {
         CriteriaBuilder criteriaBuilder = getEntityManager().getCriteriaBuilder();
