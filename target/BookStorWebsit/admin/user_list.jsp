@@ -53,15 +53,11 @@
             </td>
             <td><%=user.getEmail()%>
             </td>
-            <td><%=user
-                    .
-                    getFullName
-                            (
-                            )%>
+            <td><%=user.getFullName()%>
             </td>
             <td>
-                <a href="edit">Edit</a> &nbsp;
-                <a href="delete">Delete</a>
+                <a href="edit_user?id=<%=user.getId()%>">  Edit </a> &nbsp;
+                <a href="delete_user">Delete</a>
             </td>
         </tr>
         <%

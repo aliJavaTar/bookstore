@@ -1,3 +1,4 @@
+<%@ page import="com.bookstore.entity.User" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,8 +15,9 @@
     <form action="create_user" method="post" onsubmit="return validateFormInput()">
         <table>
             <tr>
+<%--            <%=User user =%>><%=request.getAttribute("user")%>--%>
                 <td align="right">Email:</td>
-                <td align="left"><input type="text" id="email" name="email" size="20"></td>
+                <td align="left"><input type="text" id="email" name="email" size="20" ></td>
             </tr>
             <br>
             <tr>

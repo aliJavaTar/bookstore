@@ -15,5 +15,12 @@ public interface UserService extends BaseService<User, Long> {
 
     void createUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 
+    void editUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+
     User findByEmail(String email);
+
+    void update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+
+
+    //void editUser(HttpServletRequest request, HttpServletResponse response);
 }

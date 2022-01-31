@@ -31,6 +31,12 @@ public abstract class Profile extends BaseEntity<Long> {
         this.password = password;
     }
 
+    public Profile(Long id, String email, String fullName, String password) {
+        super(id);
+        this.email = email;
+        this.fullName = fullName;
+        this.password = password;
+    }
 
     public String getEmail() {
         return email;

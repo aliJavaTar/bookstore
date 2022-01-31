@@ -122,4 +122,11 @@ public class UserDaoImplTest extends TestCase {
         System.out.println(byEmail.toString());
         assertNotNull(byEmail);
     }
+   @Test
+    public void testTestGetById() {
+        setUpClass();
+       User byId = userDao.getById(8l);
+       System.out.println(byId.toString());
+       assertNotNull(byId);
+   }
 }

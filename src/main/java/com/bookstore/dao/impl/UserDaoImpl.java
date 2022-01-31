@@ -36,8 +36,6 @@ public class UserDaoImpl extends BaseDaoImpl<User, Long> implements UserDao {
         if (user != null)
             return user;
         else return null;
-
-
     }
 
 
