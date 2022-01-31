@@ -32,6 +32,7 @@ public abstract class BaseDaoImpl<E extends BaseEntity<ID>, ID extends Serializa
         getEntityManager().getTransaction().begin();
         E updated = getEntityManager().merge(e);
         getEntityManager().getTransaction().commit();
+//        getEntityManager().getTransaction().commit();
         return updated;
     }
 

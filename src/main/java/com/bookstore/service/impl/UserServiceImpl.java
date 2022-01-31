@@ -66,7 +66,6 @@ public class UserServiceImpl extends BaseServiceImpl<User, Long, UserDao> implem
     public void editUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("request.getParameter(id) : " + request.getParameter("id"));
         long id = Long.parseLong(request.getParameter("id"));
-
         User user = userService.findById(id);
         System.out.println("find User By id : "+ user);
         request.setAttribute("user", user);
@@ -76,36 +75,10 @@ public class UserServiceImpl extends BaseServiceImpl<User, Long, UserDao> implem
     }
 
 
+
     @Override
     public User findByEmail(String email) {
         return repository.findByEmail(email);
-    }
-
-    @Override
-    public void update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("hi update im coming ............................................");
-
-////        System.out.println( "getAttribute" +request.getAttribute("user"));
-//        Long id =Long.parseLong(request.getParameter("id"));
-//        String fullName = request.getParameter("fullName");
-//        String email = request.getParameter("email");
-//        String password = request.getParameter("password");
-//        System.out.println("update(HttpServletRequest request, HttpServletResponse response)");
-//        System.out.println("id : "+ id);
-//        System.out.println("fullName : "+ fullName);
-//        System.out.println("email : "+ email);
-//        System.out.println("password : "+ password);
-
-
-//
-//
-//        User user = new User(id,fullName,email,password);
-////        User user = (User) request.getAttribute("user");
-////        System.out.println("user before edit : " + user);
-//        User update = userService.update(user);
-////        System.out.println("user after edit : " + update);
-//        userService.findAll(request, response);
-
     }
 
 }

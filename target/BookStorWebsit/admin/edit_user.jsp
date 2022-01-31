@@ -17,6 +17,9 @@
     <form action="update_user" method="post" onsubmit="return validateFormInput()">
         <div class="section"><span>1</span>First Name</div>
         <div class="inner-wrap">
+
+            <input type="hidden"  name="id" value=<%=user.getId()%>>
+
             <label>Your Full Name <input type="text" id="fullName" name="fullName" value=<%=user.getFullName()%>></label>
         </div>
 
