@@ -57,7 +57,7 @@
             </td>
             <td>
                 <a href="edit_user?id=<%=user.getId()%>">  Edit </a> &nbsp;
-                <a href="delete_user">Delete</a>
+                <a href="javascript:confirmDelete(<%=user.getId()%>)">Delete</a>
             </td>
         </tr>
         <%
@@ -68,4 +68,13 @@
 
 <jsp:include page="footer/footer.jsp"></jsp:include>
 </body>
+<script>
+    function confirmDelete(id)
+    {
+        if (confirm("Are you sure you want to delete the user with ID " + id + " ?"))
+        {
+            window.location='delete_user?id='+id;
+        }
+    }
+</script>
 </html>
