@@ -43,6 +43,6 @@
 
 </body>
 
-<script src="./js/edit.js"></script>
+<script src="js/user/edit.js"></script>
 
 </html>

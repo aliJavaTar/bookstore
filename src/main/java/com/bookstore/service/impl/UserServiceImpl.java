@@ -61,10 +61,8 @@ public class UserServiceImpl extends BaseServiceImpl<User, Long, UserDao> implem
 
     @Override
     public void editUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("request.getParameter(id) : " + request.getParameter("id"));
         long id = Long.parseLong(request.getParameter("id"));
         User user = userService.findById(id);
-        System.out.println("find User By id : "+ user);
         request.setAttribute("user", user);
         String updatePage = "edit_user.jsp";
         RequestDispatcher dispatcher = request.getRequestDispatcher(updatePage);

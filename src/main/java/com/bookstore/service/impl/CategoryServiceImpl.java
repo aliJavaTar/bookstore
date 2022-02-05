@@ -6,6 +6,7 @@ import com.bookstore.service.CategoryService;
 import com.bookstore.service.base.BaseServiceImpl;
 
 import javax.persistence.NoResultException;
+import javax.persistence.NonUniqueResultException;
 import java.util.List;
 
 public class CategoryServiceImpl extends BaseServiceImpl<Category, Long, CategoryDao> implements CategoryService {
@@ -26,8 +27,14 @@ public class CategoryServiceImpl extends BaseServiceImpl<Category, Long, Categor
     }
 
     @Override
-    public List<Category> findAll() {
-        return super.findAll();
+    public Category update(Category category) {
+        Category findByName = findByName(category.getName());
+        if (findByName != null) {
+            throw new NonUniqueResultException("Could  not update new category because already exist !");
+        } else if (findByName == null){
+            return super.update(category);
+        }
+        return null;
     }
 
     @Override

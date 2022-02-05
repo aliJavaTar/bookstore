@@ -38,6 +38,11 @@ public class Category extends BaseEntity<Long> {
         this.name = name;
     }
 
+    public Category(Long id, String name) {
+        super(id);
+        this.name = name;
+    }
+
     public String getName() {
         return name;
     }

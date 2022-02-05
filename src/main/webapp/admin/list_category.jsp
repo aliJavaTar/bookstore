@@ -57,7 +57,7 @@
             <td><%=category.getName()%>
 
             <td>
-                <a href="edit_user?id=<%=category.getId()%>">  Edit </a> &nbsp;
+                <a href="edit_category?id=<%=category.getId()%>">  Edit </a> &nbsp;
                 <a href="javascript:confirmDelete(<%=category.getId()%>)">Delete</a>
             </td>
         </tr>
