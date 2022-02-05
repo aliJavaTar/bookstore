@@ -1,6 +1,7 @@
 <%@ page import="com.bookstore.entity.User" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.bookstore.entity.Category" %>
+<%@ page import="com.bookstore.hibernateUtil.appcontext.ApplicationContext" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
@@ -41,6 +42,7 @@
 
 
         <%
+//            ApplicationContext.getCategoryService().findAll().size();
             ArrayList
                     <Category> categories = (ArrayList<Category>) request.getAttribute("listCategory");
             int index = 0;

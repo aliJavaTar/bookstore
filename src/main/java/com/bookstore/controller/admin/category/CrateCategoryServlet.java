@@ -1,6 +1,7 @@
 package com.bookstore.controller.admin.category;
 
 import com.bookstore.entity.Category;
+import com.bookstore.entity.User;
 import com.bookstore.hibernateUtil.appcontext.ApplicationContext;
 
 import javax.persistence.NoResultException;
@@ -11,16 +12,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet("/admin/create_category")
 public class CrateCategoryServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = request.getParameter("Name");
-
         try {
             ApplicationContext.getCategoryService().create(new Category(name));
-
+            List<Category> listCategory = ApplicationContext.getCategoryService().findAll();
+            request.setAttribute("listCategory", listCategory);
+            request.setAttribute("message", "new Category Created");
             RequestDispatcher dispatcher = request.getRequestDispatcher("list_category.jsp");
             dispatcher.forward(request, response);
         } catch (Exception exception) {
