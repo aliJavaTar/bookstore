@@ -72,9 +72,9 @@
 <script>
     function confirmDelete(id)
     {
-        if (confirm("Are you sure you want to delete the user with ID " + id + " ?"))
+        if (confirm("Are you sure you want to delete the category with ID " + id + " ?"))
         {
-            window.location='delete_user?id='+id;
+            window.location='delete_category?id='+id;
         }
     }
 </script>

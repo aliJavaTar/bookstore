@@ -38,6 +38,11 @@ public class CategoryServiceImpl extends BaseServiceImpl<Category, Long, Categor
     }
 
     @Override
+    public void deleteByID(Long id) {
+        super.deleteByID(id) ;
+    }
+
+    @Override
     public Category findByName(String name) {
         return repository.findByName(name);
     }
