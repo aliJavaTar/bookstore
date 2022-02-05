@@ -6,7 +6,7 @@
     <br> <br>
     <div>
         <a href="user_list">Users</a> |
-        <a href="categories">Categories</a> |
+        <a href="list-category">Categories</a> |
         <a href="books">Books</a> |
         <a href="customer">Customer</a> |
         <a href="reviews">Reviews</a> |

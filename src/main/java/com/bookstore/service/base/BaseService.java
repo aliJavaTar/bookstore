@@ -7,7 +7,7 @@ import java.util.List;
 
 
 public interface BaseService<E extends BaseEntity<ID>, ID extends Serializable> {
-    E create(E e);
+    E create(E e) ;
 
     E update(E e);
 

@@ -45,4 +45,12 @@ public class Category extends BaseEntity<Long> {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "Category{" +
+                "name='" + name + '\'' +
+                ", books=" + books +
+                '}';
+    }
 }

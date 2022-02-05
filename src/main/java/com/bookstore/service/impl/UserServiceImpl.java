@@ -27,9 +27,6 @@ public class UserServiceImpl extends BaseServiceImpl<User, Long, UserDao> implem
     public void findAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<User> userList = super.findAll();
         request.setAttribute("userList", userList);
-        System.out.println(size);
-        System.out.println("-------------------------");
-        System.out.println(userList.size());
         if (size < userList.size()) {
             request.setAttribute("message", "New User Created Successfully");
             size++;

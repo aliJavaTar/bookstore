@@ -13,10 +13,13 @@ public class ApplicationContext {
     private static final UserDao userDao;
     private static final AddressDao addressDao;
     private static final BookDao bookDao;
+    private static final CategoryDao categoryDao;
     private static final CustomerDao customerDao;
     private static final OrderDao orderDao;
     private static final OrderDetailDao orderDetailDao;
     private static final ReviewDao reviewDao;
+    ///////////////////////////////
+    private static final CategoryService categoryService;
     private static final UserService userService;
     private static final AddressService addressService;
     private static final BookService bookService;
@@ -34,7 +37,9 @@ public class ApplicationContext {
         orderDetailDao = new OrderDetailDaoImpl(entityManager);
         reviewDao = new ReviewDaoImpl(entityManager);
         bookDao = new BookDaoImpl(entityManager);
-
+        categoryDao = new CategoryDaoImpl(entityManager);
+        /////////////////////////////////////
+        categoryService=new CategoryServiceImpl(categoryDao);
         userService = new UserServiceImpl(userDao);
         addressService = new AddressServiceImpl(addressDao);
         customerService = new CustomerServiceImpl(customerDao);
@@ -98,5 +103,13 @@ public class ApplicationContext {
 
     public static ReviewService getReviewService() {
         return reviewService;
+    }
+
+    public static CategoryDao getCategoryDao() {
+        return categoryDao;
+    }
+
+    public static CategoryService getCategoryService() {
+        return categoryService;
     }
 }

@@ -3,6 +3,7 @@ package com.bookstore.service.base;
 import com.bookstore.dao.base.BaseDao;
 import com.bookstore.entity.base.BaseEntity;
 
+import javax.persistence.NoResultException;
 import java.io.Serializable;
 import java.util.List;
 
@@ -14,7 +15,7 @@ public class BaseServiceImpl<E extends BaseEntity<ID> ,ID extends Serializable ,
     }
 
     @Override
-    public E create(E e) {
+    public E create(E e)  {
     //    repository.getEntityManager().getTransaction().begin();
         e = repository.create(e);
     //    repository.getEntityManager().getTransaction().commit();

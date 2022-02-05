@@ -18,10 +18,6 @@ public class UserDaoImpl extends BaseDaoImpl<User, Long> implements UserDao {
         super(entityManager);
     }
 
-    @Override
-    public User update(User user) {
-        return super.update(user);
-    }
 
     @Override
     public User findByEmail(String email) {
