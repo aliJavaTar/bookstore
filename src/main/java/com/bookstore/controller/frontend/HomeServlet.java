@@ -1,5 +1,8 @@
 package com.bookstore.controller.frontend;
 
+import com.bookstore.hibernateUtil.appcontext.ApplicationContext;
+import org.hibernate.boot.model.source.internal.hbm.AbstractPluralAssociationElementSourceImpl;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,6 +17,9 @@ public class HomeServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        request.setAttribute("listCategory", ApplicationContext.getCategoryService().findAll());
+
         String homePage = "frontend/index.jsp";
         RequestDispatcher requestDispatcher = request.getRequestDispatcher(homePage);
         requestDispatcher.forward(request,response);
