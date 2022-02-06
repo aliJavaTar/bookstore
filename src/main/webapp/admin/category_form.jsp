@@ -3,17 +3,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Create New User</title>
+    <title>Create New Category</title>
+    <link rel="stylesheet" href="css/style.css">\
+    <script src="https://kit.fontawesome.com/c58c537f6b.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <jsp:include page="header/header.jsp"></jsp:include>
 
 <header align="center">
-    <h2>Create New Category</h2>
+    <h2 class="page_head_line">Create New Category</h2>
 </header>
 <div align="center">
     <form action="create_category" method="post" onsubmit="return validateFormInput()">
-        <table>
+        <table class="form">
 
             <tr>
                 <td align="right">Name:</td>
@@ -23,8 +25,8 @@
 
             <tr>
                 <td colspan="2" align="center">
-                    <input type="submit" value="Save">
-                    <input type="button" value="Cancel" onclick="refresh();">
+                    <button type="submit"> Save </button>
+                    <button type="button" onclick="refresh();">Cancel </button>
                 </td>
             </tr>
         </table>

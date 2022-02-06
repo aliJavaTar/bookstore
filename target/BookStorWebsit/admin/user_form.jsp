@@ -4,20 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Create New User</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="./js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="./js/jquery.validate.min.js"></script>
+    <script src="https://kit.fontawesome.com/c58c537f6b.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <jsp:include page="header/header.jsp"></jsp:include>
 
 <header align="center">
-    <h2>Create New User</h2>
+    <h1 class="page_head_line">Create New User</h1>
 </header>
 <div align="center">
     <form action="create_user" method="post" onsubmit="return validateFormInput()">
-        <table>
+        <table class="form">
             <tr>
-<%--            <%=User user =%>><%=request.getAttribute("user")%>--%>
+                <%--            <%=User user =%>><%=request.getAttribute("user")%>--%>
                 <td align="right">Email:</td>
-                <td align="left"><input type="text" id="email" name="email" size="20" ></td>
+                <td align="left"><input type="text" id="email" name="email" size="20"></td>
             </tr>
             <br>
             <tr>
@@ -34,8 +38,8 @@
             </tr>
             <tr>
                 <td colspan="2" align="center">
-                    <input type="submit" value="Save">
-                    <input type="button" value="Cancel" onclick="refresh();">
+                    <button type="submit" >Save</button>&nbsp;&nbsp;&nbsp;
+                        <button type="button" onclick="refresh();">Cancel</button>
                 </td>
             </tr>
         </table>
@@ -45,13 +49,20 @@
 <jsp:include page="footer/footer.jsp"></jsp:include>
 </body>
 <script type="text/javascript">
-
-    function refresh() {
-        //Refresh page implementation here
-        window.location.href = "http://localhost:8080/BookStorWebsit_war_exploded/admin/user_list";
-        // window.opener.location.reload();
-        window.close();
-    }
+    $(document).read(function (){
+      $("#userForm").validate({
+          rules:{
+              email:"required",
+              fullName:"required",
+              password:"required",
+          },
+          message:{
+              email:"please Enter your EmailAddress ",
+              fullName:"please Enter FullName",
+              password:"please Enter password",
+          }
+      })
+    });
 
     function validateFormInput() {
         let fieldEmail = document.getElementById("email");
@@ -73,6 +84,13 @@
             return false;
         }
         return true;
+    }
+
+    function refresh() {
+        //Refresh page implementation here
+        window.location.href = "http://localhost:8080/BookStorWebsit_war_exploded/admin/user_list";
+        // window.opener.location.reload();
+        window.close();
     }
 </script>
 </html>

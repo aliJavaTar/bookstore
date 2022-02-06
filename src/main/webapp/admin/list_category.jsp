@@ -9,11 +9,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Mange Category - Administration dashboard</title>
+     <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/c58c537f6b.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <jsp:include page="header/header.jsp"></jsp:include>
 <header align="center">
-    <h2>Category Management</h2>
+    <h2 class="page_head_line">Category Management</h2>
     <h3><a href="category_form.jsp">Create New Category</a></h3>
     <%--    <input type="hidden" name="userList" value="<%=request.getAttribute("userList")%>">--%>
 </header>
@@ -23,7 +25,7 @@
     <%
         if (message != null) {
     %>
-    <h4><%=message%></h4>
+    <h4 class="message"><%=message%></h4>
     <%
         }
     %>

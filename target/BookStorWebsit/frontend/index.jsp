@@ -1,14 +1,9 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Lion
-  Date: 1/26/2022
-  Time: 1:13 PM
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>As Mansor Books - Online Books Store</title>
+    <script src="https://kit.fontawesome.com/c58c537f6b.js" crossorigin="anonymous"></script>
 </head>
 <body>
 

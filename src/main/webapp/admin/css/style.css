@@ -1,0 +1,65 @@
+a{
+    color: cornflowerblue;
+    text-decoration: none;
+}
+a:link{
+    color: cornflowerblue;
+    text-decoration: none;
+}
+a:visited{
+    color: indigo;
+}
+a:hover{
+    color: blue;
+    text-decoration: underline;
+}
+a:active{
+    color: red;
+}
+#header_menu a:link
+{
+    font-size: large;
+}
+.page_head_line{
+    color: darkblue;
+}
+
+table{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th,td{
+    padding: 8px ;
+}
+
+th{
+    background: darkblue;
+    color: cornsilk;
+    font-size: large;
+}
+table.form {
+    border: 0;
+    padding: 4px  ;
+}
+button{
+     padding: 6px;
+    border-radius: 6px;
+}
+button[type=submit]
+{
+    font-weight: bold;
+}
+button:hover{
+    background-color: white;
+    color: green;
+}
+input{
+    border: 1px solid;
+    border-radius: 5px;
+    border-color: green;
+    height: 20px;
+}
+.message{
+    font-style: italic;
+    color: blue;
+}
