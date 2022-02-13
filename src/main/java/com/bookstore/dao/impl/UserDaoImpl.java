@@ -21,9 +21,9 @@ public class UserDaoImpl extends BaseDaoImpl<User, Long> implements UserDao {
 
     @Override
     public User findByEmail(String email) {
-        String query = "from User u where u.email = :email";
+        String query = "select u from User u where u.email = :email";
         User user = null;
-     getEntityManager().getTransaction().begin();
+        getEntityManager().getTransaction().begin();
         try {
 //           getEntityManager().getTransaction().begin();
             user = (User) getEntityManager().createQuery(query)
@@ -39,15 +39,19 @@ public class UserDaoImpl extends BaseDaoImpl<User, Long> implements UserDao {
     }
 
 
+
     @Override
-    public User findByName(User user) {
-        CriteriaBuilder criteriaBuilder = getEntityManager().getCriteriaBuilder();
-        CriteriaQuery<User> query = criteriaBuilder.createQuery(User.class);
-        Root<User> from = query.from(User.class);
-        Predicate checkUsername = criteriaBuilder.equal(from.get("fullName"), user.getFullName());
-        query.select(from).where(checkUsername);
-        User userLogin = getEntityManager().createQuery(query).getSingleResult();
-        return userLogin;
+    public boolean checkLogin(String email, String password) {
+        getEntityManager().getTransaction().begin();
+        String query = "select u from User u where u.email = :email AND u.password=:password";
+        Query qu = getEntityManager().createQuery(query);
+        qu.setParameter("email", email);
+        qu.setParameter("password", password);
+        List resultList = qu.getResultList();
+        getEntityManager().getTransaction().commit();
+        if (resultList.size() > 0)
+            return true;
+        else return false;
     }
 
     @Override

@@ -115,6 +115,7 @@ public class UserDaoImplTest extends TestCase {
         List<User> userList = userDao.findAll();
         assertTrue(userList.size() > 0);
     }
+
     @Test
     public void testFindByEmail() {
         setUpClass();
@@ -122,11 +123,22 @@ public class UserDaoImplTest extends TestCase {
         System.out.println(byEmail.toString());
         assertNotNull(byEmail);
     }
-   @Test
+
+    @Test
     public void testTestGetById() {
         setUpClass();
-       User byId = userDao.getById(8l);
-       System.out.println(byId.toString());
-       assertNotNull(byId);
-   }
+        User byId = userDao.getById(8l);
+        System.out.println(byId.toString());
+        assertNotNull(byId);
+    }
+
+    @org.junit.jupiter.api.Test
+    void checkLogin() {
+        setUpClass();
+        boolean aliErfagh = userDao.checkLogin("aliJavaBoy@gmail.com", "ali77");
+        System.out.println(aliErfagh);
+        assertTrue(aliErfagh);
+
+    }
+
 }

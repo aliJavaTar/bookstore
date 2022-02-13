@@ -15,8 +15,8 @@ import java.io.IOException;
 public class EditUserServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        UserService userService = new UserServiceImpl(ApplicationContext.getUserDao());
-        userService.editUser(request,response);
+        UserService userService = ApplicationContext.getUserService();
+        userService.editUser(request, response);
     }
 }
 

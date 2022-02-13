@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
-import java.util.NoSuchElementException;
 
 public class UserServiceImpl extends BaseServiceImpl<User, Long, UserDao> implements UserService {
     public UserServiceImpl(UserDao repository) {
@@ -70,10 +69,18 @@ public class UserServiceImpl extends BaseServiceImpl<User, Long, UserDao> implem
     }
 
 
-
     @Override
     public User findByEmail(String email) {
         return repository.findByEmail(email);
     }
+
+    @Override
+    public boolean login(String email, String password) {
+        boolean loginResult = ApplicationContext.getUserDao().checkLogin(email, password);
+        if (loginResult)
+           return true ;
+        else return false;
+    }
+
 
 }

@@ -9,5 +9,5 @@ public interface UserDao extends BaseDao<User, Long> {
 
     User findByEmail(String email);
 
-    User findByName(User user);
+    boolean checkLogin(String email, String password);
 }
