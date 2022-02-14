@@ -12,6 +12,11 @@ public class BookDaoImpl extends BaseDaoImpl<Books, Long> implements BookDao {
     }
 
     @Override
+    public Books create(Books books) {
+        return super.create(books);
+    }
+
+    @Override
     public Class<Books> getEntityClass() {
         return Books.class;
     }
