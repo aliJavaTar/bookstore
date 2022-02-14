@@ -12,8 +12,8 @@ public class BookDaoImpl extends BaseDaoImpl<Books, Long> implements BookDao {
     }
 
     @Override
-    public Books create(Books books) {
-        return super.create(books);
+    public Books update(Books books) {
+        return super.update(books);
     }
 
     @Override

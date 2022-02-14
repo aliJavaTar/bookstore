@@ -13,9 +13,5 @@ public class BookServiceImpl extends BaseServiceImpl<Books,Long, BookDao> implem
         super(repository);
     }
 
-    @Override
-    public Books create(Books books) {
 
-        return super.create(books);
-    }
 }

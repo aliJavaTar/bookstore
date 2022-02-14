@@ -35,11 +35,22 @@ public class Books extends BaseEntity<Long> {
     private String image;
     @Column(name = PRICE, nullable = false)
     private double price;
-    @Column(name = PUBLISH_DATE, nullable = false)
+    @Column(name = PUBLISH_DATE)
     private Timestamp publish_date;
-    @Column(name = UPDATE_AT, nullable = false)
+    @Column(name = UPDATE_AT)
     private Timestamp update_at;
 //
+
+    public Books(String title, String description, String author, String isbn, String image, double price, Timestamp publish_date,Category category) {
+        this.title = title;
+        this.description = description;
+        this.author = author;
+        this.isbn = isbn;
+        this.image = image;
+        this.price = price;
+        this.publish_date = publish_date;
+        this.category = category;
+    }
 
     public Books() {
     }
