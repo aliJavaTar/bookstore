@@ -28,11 +28,13 @@ public abstract class BaseDaoImpl<E extends BaseEntity<ID>, ID extends Serializa
     }
 
     @Override
-    public E update(E e) {
+    public E update(E entity) {
         getEntityManager().getTransaction().begin();
-        E updated = getEntityManager().merge(e);
+
+        E updated = getEntityManager().merge(entity);
+
         getEntityManager().getTransaction().commit();
-//        getEntityManager().getTransaction().commit();
+
         return updated;
     }
 

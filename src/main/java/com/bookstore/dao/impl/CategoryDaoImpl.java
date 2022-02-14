@@ -18,6 +18,10 @@ public class CategoryDaoImpl extends BaseDaoImpl<Category, Long> implements Cate
         super(entityManager);
     }
 
+    @Override
+    public Category create(Category category) {
+        return super.create(category);
+    }
 
     public Category findByName(String name) {
         String query = "select c from Category c where c.name =:name";

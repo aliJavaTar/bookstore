@@ -38,4 +38,12 @@ public class CategoryDaoImplTest extends TestCase {
     void testFindByNameNotFound() {
         assertNotNull(categoryDao.findByName("Health3"));
     }
+
+    @Test
+    void create() {
+        setUpClass();
+        category.setId(1l);
+        category.setName("java");
+        categoryDao.create(category);
+    }
 }

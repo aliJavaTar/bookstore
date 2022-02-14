@@ -4,7 +4,6 @@ import com.bookstore.dao.BookDao;
 import com.bookstore.dao.UserDao;
 import com.bookstore.entity.Books;
 import com.bookstore.entity.Category;
-import com.bookstore.entity.Review;
 import com.bookstore.entity.User;
 import junit.framework.TestCase;
 import org.junit.Before;
@@ -35,21 +34,19 @@ class BookDaoImplTest extends TestCase {
     @Test
     void create() {
         Category category = new Category();
-        category.setName("Java Core");
-        category.setId(3l);
+        category.setId(1l);
+        category.setName("java");
         setUpClass();
-        bookDao.create(new Books("java","Java Ee","ali","ye ye"
-                ,"https://www.google.com/url?sa=i&url=https%3A%2F%2Fdata.europa.eu%2Ffi%2Fnews%2Fedp-book-club&psig=AOvVaw1308KvKs2-rnem-jkPBYSv&ust=1644924390948000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCLD2tMSL__UCFQAAAAAdAAAAABAD",
-                2000,new Timestamp(1999l),category));
+         books = new Books("java","java Ee","ali","gr",
+                "imageAddress",2600,new Timestamp(2l),category);
+        bookDao.create(books);
     }
 
     @Test
     void update() {
         setUpClass();
-        Category category = new Category();
-        category.setName("Java Core");
-        category.setId(3l);
-        books.setId(1l);
-
+        books.setId(2l);
+        books.setPrice(4000);
+        bookDao.update(books);
     }
 }

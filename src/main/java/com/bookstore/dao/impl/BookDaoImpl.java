@@ -11,10 +11,7 @@ public class BookDaoImpl extends BaseDaoImpl<Books, Long> implements BookDao {
         super(entityManager);
     }
 
-    @Override
-    public Books update(Books books) {
-        return super.update(books);
-    }
+
 
     @Override
     public Class<Books> getEntityClass() {

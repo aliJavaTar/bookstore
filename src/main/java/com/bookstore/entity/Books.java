@@ -10,11 +10,15 @@ import java.util.List;
 import static com.bookstore.entity.Books.TABLE_NAME;
 
 @Entity
-@Table(name = TABLE_NAME)
+
+@Table(
+        name = TABLE_NAME,
+        uniqueConstraints = {@UniqueConstraint(columnNames = {Books.TITLE})}
+)
 public class Books extends BaseEntity<Long> {
 
     protected final static String TABLE_NAME = "books";
-    private final static String TITLE = "title";
+    protected final static String TITLE = "title";
     private final static String DESCRIPTION = "description";
     private final static String AUTHOR = "author";
     private final static String ISBN = "isbn";
@@ -23,7 +27,7 @@ public class Books extends BaseEntity<Long> {
     private final static String PUBLISH_DATE = "publish_date";
     private final static String UPDATE_AT = "update_at";
 
-    @Column(name = TITLE, nullable = false)
+    @Column(name = TITLE, nullable = false,unique = true)
     private String title;
     @Column(name = DESCRIPTION, nullable = false)
     private String description;

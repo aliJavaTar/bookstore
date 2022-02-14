@@ -11,8 +11,6 @@ public class UserTest {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("BookStoreWebsite");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
-//
-//        entityManager.persist(user);
         entityManager.getTransaction().commit();
         entityManager.close();
         entityManagerFactory.close();

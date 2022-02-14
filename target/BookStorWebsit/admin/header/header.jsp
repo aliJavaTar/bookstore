@@ -27,7 +27,7 @@
             </a>
         </div>
         <div style="margin: 0 16px;">
-            <a href="#" style="color: black;text-align: center;vertical-align: baseline; text-decoration: none;">
+            <a href="list_books" style="color: black;text-align: center;vertical-align: baseline; text-decoration: none;">
                 <i class="fas fa-book fa-3x" style="display: block;"></i>
                 <div style="font-size: large; margin-top: 4px">Books</div>
             </a>
