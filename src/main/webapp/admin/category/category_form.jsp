@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Create New Category</title>
-    <link rel="stylesheet" href="css/style.css">\
+    <link rel="stylesheet" href="../css/style.css">\
     <script src="https://kit.fontawesome.com/c58c537f6b.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<jsp:include page="header/header.jsp"></jsp:include>
+<jsp:include page="../header/header.jsp"></jsp:include>
 
 <header align="center">
     <h2 class="page_head_line">Create New Category</h2>
@@ -33,7 +33,7 @@
     </form>
 </div>
 
-<jsp:include page="footer/footer.jsp"></jsp:include>
+<jsp:include page="../footer/footer.jsp"></jsp:include>
 </body>
 <script type="text/javascript">
 

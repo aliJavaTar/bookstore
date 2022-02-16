@@ -7,11 +7,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Mange Users - Administration dashboard</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <script src="https://kit.fontawesome.com/c58c537f6b.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<jsp:include page="header/header.jsp"></jsp:include>
+<jsp:include page="../header/header.jsp"></jsp:include>
 <header align="center">
     <h1 class="page_head_line">User Management</h1>
     <h3><a href="user_form.jsp">Create New User</a></h3>

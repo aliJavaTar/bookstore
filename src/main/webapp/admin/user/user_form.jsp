@@ -4,15 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Create New User</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <script type="text/javascript" src="./js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="./js/jquery.validate.min.js"></script>
     <script src="https://kit.fontawesome.com/c58c537f6b.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<jsp:include page="header/header.jsp"></jsp:include>
+<jsp:include page="../header/header.jsp"></jsp:include>
 
-<header align="center">
+
+    <header align="center">
     <h1 class="page_head_line">Create New User</h1>
 </header>
 <div align="center">

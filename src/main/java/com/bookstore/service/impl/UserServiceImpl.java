@@ -32,7 +32,7 @@ public class UserServiceImpl extends BaseServiceImpl<User, Long, UserDao> implem
         }
         //  response.getWriter().println("New User Created Successfully");
 
-        String listPage = "user_list.jsp";
+        String listPage = "user/user_list.jsp";
         RequestDispatcher dispatcher = request.getRequestDispatcher(listPage);
         dispatcher.forward(request, response);
     }
@@ -63,7 +63,7 @@ public class UserServiceImpl extends BaseServiceImpl<User, Long, UserDao> implem
         long id = Long.parseLong(request.getParameter("id"));
         User user = userService.findById(id);
         request.setAttribute("user", user);
-        String updatePage = "edit_user.jsp";
+        String updatePage = "user/edit_user.jsp";
         RequestDispatcher dispatcher = request.getRequestDispatcher(updatePage);
         dispatcher.forward(request, response);
     }

@@ -5,9 +5,9 @@
     <title>Not Found Error</title>
 </head>
 <body>
-<img src="../image/admin/BookstoreAdminLogo.png" alt="no image">
+<img src=".././image/admin/BookstoreAdminLogo.png" alt="no image">
 
-<div align="cnter"></div>
+<div align="center"></div>
 <h2>Sorry , the requested page could not be found.  </h2>
 <a href="javascript:history.go(-1)">Go Back</a>
 </body>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Admin Login</title>
     <link href="https://fonts.googleapis.com/css?family=Assistant:400,700" rel="stylesheet">
-     <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="./css/login.css">
 </head>
 <body>
 
@@ -31,7 +31,7 @@
 </section>
 
 <!-- partial -->
-<script  src="login.js"></script>
+<script  src="js/login.js"></script>
 
 </body>
 </html>

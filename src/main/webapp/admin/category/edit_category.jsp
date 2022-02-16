@@ -7,7 +7,7 @@
     <title>Form Style 10</title>
     <link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
 
-    <link rel="stylesheet" href="./css/edit.css">
+    <link rel="stylesheet" href="../css/edit.css">
 </head>
 
 <body>
@@ -35,6 +35,6 @@
 
 </body>
 
-<script src="js/category/edit_category.js"></script>
+<script src="../js/category/edit_category.js"></script>
 
 </html>

@@ -9,11 +9,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Mange Category - Administration dashboard</title>
-     <link rel="stylesheet" href="css/style.css">
+     <link rel="stylesheet" href="../css/style.css">
     <script src="https://kit.fontawesome.com/c58c537f6b.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<jsp:include page="header/header.jsp"></jsp:include>
+<jsp:include page="../header/header.jsp"></jsp:include>
 <header align="center">
     <h2 class="page_head_line">Category Management</h2>
     <h3><a href="category_form.jsp">Create New Category</a></h3>
@@ -69,7 +69,7 @@
     </table>
 </div>
 
-<jsp:include page="footer/footer.jsp"></jsp:include>
+<jsp:include page="../footer/footer.jsp"></jsp:include>
 </body>
 <script>
     function confirmDelete(id)

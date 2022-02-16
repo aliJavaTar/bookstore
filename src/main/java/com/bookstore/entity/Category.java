@@ -9,7 +9,7 @@ import java.util.List;
 import static com.bookstore.entity.Category.TABLE_NAME;
 
 @Entity
-@Table(name =TABLE_NAME)
+@Table(name = TABLE_NAME)
 public class Category extends BaseEntity<Long> {
     protected final static String TABLE_NAME = "Categories";
     private final static String NAME = "name";
@@ -18,7 +18,7 @@ public class Category extends BaseEntity<Long> {
 
 
     //
-    @OneToMany(mappedBy = "category",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
     private List<Books> books;
 
     //
@@ -53,9 +53,7 @@ public class Category extends BaseEntity<Long> {
 
     @Override
     public String toString() {
-        return "Category{" +
-                "name='" + name + '\'' +
-                ", books=" + books +
-                '}';
+        return name;
+
     }
 }
