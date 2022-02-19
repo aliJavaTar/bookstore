@@ -15,7 +15,7 @@
 <jsp:include page="../header/header.jsp"></jsp:include>
 <header align="center">
     <h1 class="page_head_line">Book Management</h1>
-    <h3><a href="book_form.jsp">Create New Book</a></h3>
+    <h3><a href="new_book">Create New Book</a></h3>
     <%--    <input type="hidden" name="userList" value="<%=request.getAttribute("userList")%>">--%>
 </header>
 <div align="center">

@@ -14,6 +14,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -37,8 +38,7 @@ class BookDaoImplTest extends TestCase {
         category.setId(1l);
         category.setName("java");
         setUpClass();
-         books = new Books("java","java Ee","ali","gr",
-                "imageAddress",2600,new Timestamp(2l),category);
+         books = new Books("java","java Ee","ali","gr",2600,new Date(2l),category);
         bookDao.create(books);
     }
 
