@@ -3,6 +3,7 @@ package com.bookstore.controller.admin.books;
 import com.bookstore.entity.Books;
 import com.bookstore.entity.Category;
 import com.bookstore.hibernateUtil.appcontext.ApplicationContext;
+import com.bookstore.service.impl.BookServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -12,9 +13,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import java.io.IOException;
+import java.io.InputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 
@@ -26,13 +29,20 @@ public class CreateBookServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Books books = insertBook(request);
-        ApplicationContext.getBookService().create(books);
-        books.setImage(getImage(request.getPart("image")));
-//        byte[] image = books.getImage();
-
+        Books booksCreated = ApplicationContext.getBookService().create(books);
+        transferImage(request, booksCreated);
+        List<Books> allBooks = ApplicationContext.getBookService().findAll();
+        request.setAttribute("books",allBooks);
+       request.getRequestDispatcher("book/book_list.jsp").forward(request,response);
+      //notify
     }
 
-    private Books insertBook(HttpServletRequest request) throws ServletException {
+    private void transferImage(HttpServletRequest request, Books booksCreated) throws IOException, ServletException {
+        BookServiceImpl bookService = new BookServiceImpl(ApplicationContext.getBookDao());
+        bookService.convertToFile("C:\\Users\\Lion\\Documents\\" + request.getPart("image").getSubmittedFileName(), booksCreated.getId());
+    }
+
+    private Books insertBook(HttpServletRequest request) throws ServletException, IOException {
         Books books = new Books();
         books.setTitle(getStringValue("title", request));
         books.setAuthor(getStringValue("author", request));
@@ -42,11 +52,11 @@ public class CreateBookServlet extends HttpServlet {
         Category category = ApplicationContext.getCategoryService().findById(getLongValue("category", request));
         books.setIsbn(getStringValue("isbn", request));
         books.setCategory(category);
+        books.setImage(getImage(request.getPart("image")));
         return books;
     }
 
     private byte[] getImage(Part imagePart) throws IOException {
-
         return ApplicationContext.getBookService().readImage(imagePart);
     }
 
@@ -55,7 +65,6 @@ public class CreateBookServlet extends HttpServlet {
         return request.getParameter(name);
     }
 
-
     private Long getLongValue(String name, HttpServletRequest request) {
         return Long.parseLong(request.getParameter(name));
     }
@@ -63,7 +72,6 @@ public class CreateBookServlet extends HttpServlet {
     private Double getDoubleValue(String name, HttpServletRequest request) {
         return Double.parseDouble(request.getParameter(name));
     }
-
 
     private Date getPublishDate(String name, HttpServletRequest request) throws ServletException {
         java.sql.Date sqlDate;

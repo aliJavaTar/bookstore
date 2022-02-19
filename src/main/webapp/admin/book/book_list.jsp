@@ -49,8 +49,7 @@
 
 
         <%
-            ArrayList
-                    <Books> books = (ArrayList<Books>) request.getAttribute("books");
+            ArrayList <Books> books = (ArrayList<Books>) request.getAttribute("books");
             int index = 0;
             for (Books book : books) {
                 index++;
@@ -59,25 +58,19 @@
             <td><%=index%>
             </td>
 
-            <td><%=book.getId()%>
-            </td>
+            <td><%=book.getId()%></td>
 
             <td><img src="../image/<%=book.getId()%>.jpg" alt="no image" style="width: 120px; height: 120px;object-fit: cover;object-position: center;"></td>
 
-            <td><%=book.getTitle()%>
-            </td>
+            <td><%=book.getTitle()%></td>
 
-            <td><%=book.getAuthor()%>
-            </td>
+            <td><%=book.getAuthor()%></td>
 
-            <td><%=book.getCategory()%>
-            </td>
+            <td><%=book.getCategory()%></td>
 
-            <td><%=book.getPrice()%>
-            </td>
+            <td><%=book.getPrice()%></td>
 
-            <td><%=book.getUpdate_at()%>
-            </td>
+            <td><%=book.getUpdate_at()%></td>
 
             </td>
             <td>

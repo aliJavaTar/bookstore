@@ -4,12 +4,13 @@ import com.bookstore.dao.BookDao;
 import com.bookstore.entity.Books;
 import com.bookstore.service.BookService;
 import com.bookstore.service.base.BaseServiceImpl;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 
 import javax.servlet.http.Part;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
@@ -40,20 +41,18 @@ public class BookServiceImpl extends BaseServiceImpl<Books, Long, BookDao> imple
             imageByte = new byte[(int) size];
             InputStream stream = image.getInputStream();
 
-            InputStream inputStream =stream;
-
-            stream.read(imageByte);
             stream.close();
             return imageByte;
         } else throw new IOException("no image");
     }
-    private void convertToFile(InputStream inputStream){
-        try ( InputStream stream = inputStream ) {
-            // convert stream to file
-           Files.copy(stream, Paths.get(""), StandardCopyOption.REPLACE_EXISTING);
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
+    public void convertToFile(String address,Long id) throws IOException {
+        Path path = Paths.get(address);
+        byte[] buffer = java.nio.file.Files.readAllBytes(path);
+        File targetFile = new File("C:\\Users\\Lion\\Desktop\\BookStorWebsit\\src\\main\\webapp\\image\\"+id+".jpg");
+        OutputStream outStream = new FileOutputStream(targetFile);
+        outStream.write(buffer);
+
+        IOUtils.closeQuietly(outStream);
     }
 
 }

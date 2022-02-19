@@ -64,6 +64,7 @@
                 <td align="right">Book Image :</td>
                 <td align="left"><input type="file" id="image" name="image" size="20"></td>
 <%--                <img id="thumbnail" alt="Image Preview">--%>
+                <img alt="Image" src="${string4}" width="160" height="160"/>
             </tr>
 
             <tr>

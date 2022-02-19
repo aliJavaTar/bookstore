@@ -16,7 +16,7 @@ public class DeleteBookServlet extends HttpServlet {
         String id = request.getParameter("id");
         getBookService().deleteByID(Long.parseLong((id)));
         getBookService().deleteImage("C:\\Users\\Lion\\Desktop\\BookStorWebsit\\src\\main\\webapp\\image\\"+id+".jpg");
-        response.sendRedirect("http://localhost:8080/BookStorWebsit_war_exploded/admin/list_books");
-
+//        response.sendRedirect("http://localhost:8080/BookStorWebsit_war_exploded/admin/list_books");
+        request.getRequestDispatcher("book/book_list.jsp").forward(request,response);
     }
 }
