@@ -28,6 +28,8 @@ public class CreateBookServlet extends HttpServlet {
         Books books = insertBook(request);
         ApplicationContext.getBookService().create(books);
         books.setImage(getImage(request.getPart("image")));
+//        byte[] image = books.getImage();
+
     }
 
     private Books insertBook(HttpServletRequest request) throws ServletException {
@@ -44,6 +46,7 @@ public class CreateBookServlet extends HttpServlet {
     }
 
     private byte[] getImage(Part imagePart) throws IOException {
+
         return ApplicationContext.getBookService().readImage(imagePart);
     }
 

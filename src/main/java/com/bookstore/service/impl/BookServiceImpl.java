@@ -9,6 +9,9 @@ import javax.servlet.http.Part;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 
 public class BookServiceImpl extends BaseServiceImpl<Books, Long, BookDao> implements BookService {
     public BookServiceImpl(BookDao repository) {
@@ -35,11 +38,22 @@ public class BookServiceImpl extends BaseServiceImpl<Books, Long, BookDao> imple
         {
             long size = image.getSize();
             imageByte = new byte[(int) size];
-            InputStream inputStream = image.getInputStream();
-            inputStream.read(imageByte);
-            inputStream.close();
+            InputStream stream = image.getInputStream();
+
+            InputStream inputStream =stream;
+
+            stream.read(imageByte);
+            stream.close();
             return imageByte;
         } else throw new IOException("no image");
+    }
+    private void convertToFile(InputStream inputStream){
+        try ( InputStream stream = inputStream ) {
+            // convert stream to file
+           Files.copy(stream, Paths.get(""), StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
 
 }

@@ -13,14 +13,9 @@ import static com.bookstore.hibernateUtil.appcontext.ApplicationContext.getBookS
 public class DeleteBookServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        System.out.println("delete book !! ");
         String id = request.getParameter("id");
         getBookService().deleteByID(Long.parseLong((id)));
-
         getBookService().deleteImage("C:\\Users\\Lion\\Desktop\\BookStorWebsit\\src\\main\\webapp\\image\\"+id+".jpg");
-
-
-//        request.getRequestDispatcher("book_list").forward(request, response);
         response.sendRedirect("http://localhost:8080/BookStorWebsit_war_exploded/admin/list_books");
 
     }
