@@ -31,10 +31,14 @@ public class CreateBookServlet extends HttpServlet {
         Books books = insertBook(request);
         Books booksCreated = ApplicationContext.getBookService().create(books);
         transferImage(request, booksCreated);
+        showAll(request, response);
+        //notify
+    }
+
+    private void showAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Books> allBooks = ApplicationContext.getBookService().findAll();
-        request.setAttribute("books",allBooks);
-       request.getRequestDispatcher("book/book_list.jsp").forward(request,response);
-      //notify
+        request.setAttribute("books", allBooks);
+        request.getRequestDispatcher("book/book_list.jsp").forward(request, response);
     }
 
     private void transferImage(HttpServletRequest request, Books booksCreated) throws IOException, ServletException {
