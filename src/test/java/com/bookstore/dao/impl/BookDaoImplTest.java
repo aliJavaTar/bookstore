@@ -6,6 +6,7 @@ import com.bookstore.entity.Books;
 import com.bookstore.entity.Category;
 import com.bookstore.entity.User;
 import junit.framework.TestCase;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -16,6 +17,7 @@ import javax.persistence.Persistence;
 
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -52,5 +54,12 @@ class BookDaoImplTest extends TestCase {
 
     @Test
     void listByCategory() {
+        setUpClass();
+        long categoryId = 1;
+        List<Books> booksList = bookDao.listByCategory(categoryId);
+        Assert.assertTrue(booksList.size()>0);
+        for (Books b :booksList) {
+            System.out.println(b);
+        }
     }
 }

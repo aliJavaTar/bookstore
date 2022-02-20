@@ -28,6 +28,7 @@ public class UserDaoImpl extends BaseDaoImpl<User, Long> implements UserDao {
 //           getEntityManager().getTransaction().begin();
             user = (User) getEntityManager().createQuery(query)
                     .setParameter("email", email).getSingleResult();
+
             getEntityManager().getTransaction().commit();
         } catch (NoResultException nre) {
             nre.printStackTrace();

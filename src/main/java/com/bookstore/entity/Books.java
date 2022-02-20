@@ -5,6 +5,7 @@ import com.bookstore.entity.base.BaseEntity;
 import javax.persistence.*;
 
 import java.sql.Timestamp;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -185,5 +186,22 @@ public class Books extends BaseEntity<Long> {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    @Override
+    public String toString() {
+        return "Books{" +
+                "title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", author='" + author + '\'' +
+                ", isbn='" + isbn + '\'' +
+                ", image=" + Arrays.toString(image) +
+                ", price=" + price +
+                ", publish_date=" + publish_date +
+                ", update_at=" + update_at +
+                ", category=" + category +
+                ", reviews=" + reviews +
+                ", orderDetails=" + orderDetails +
+                '}';
     }
 }

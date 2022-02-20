@@ -22,8 +22,12 @@ public class BookDaoImpl extends BaseDaoImpl<Books, Long> implements BookDao {
     @Override
     public List<Books> listByCategory(long categoryId) {
         getEntityManager().getTransaction().begin();
-        String query = "select b from Books b join Category c on b.category.id = c.id and c.id = :"+categoryId;
-        List<Books> resultList = (List<Books>) getEntityManager().createQuery(query).getResultList();
+//        String query = "select u from User u where u.email = :email";
+        String query = "select b from Books b join Category c on b.category.id = c.id and c.id = :categoryId";
+
+        List<Books> resultList =  getEntityManager().createQuery(query).
+                setParameter("categoryId", categoryId).getResultList();
+
         getEntityManager().getTransaction().commit();
         return resultList;
     }
