@@ -49,4 +49,8 @@ class BookDaoImplTest extends TestCase {
         books.setPrice(4000);
         bookDao.update(books);
     }
+
+    @Test
+    void listByCategory() {
+    }
 }
